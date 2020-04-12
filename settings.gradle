@@ -1,4 +1,5 @@
 rootProject.name = 'stream-examples'
 include 'java7-examples'
 include 'java8-examples'
+include 'common'
 

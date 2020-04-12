@@ -19,3 +19,5 @@ Resources:
 [Java One Liners Repo](https://github.com/aruld/java-oneliners/wiki)
 
 [Functions Java Docs](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+
+[Fork and Join in Java 7](https://www.baeldung.com/java-fork-join)

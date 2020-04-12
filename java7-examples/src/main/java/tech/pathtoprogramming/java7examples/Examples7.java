@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /***
@@ -21,7 +22,7 @@ public class Examples7 {
         System.out.println("1. Multiple Each Item in a List by 2");
         List<Integer> items = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
         List<Integer> result = new ArrayList<>();
-        for (int item: items) {
+        for (int item : items) {
             result.add(item * 2);
         }
         System.out.println(result);
@@ -33,7 +34,7 @@ public class Examples7 {
         for (int i = 1; i < 1000; i++) {
             numbers.add(i);
         }
-        for (int number: numbers) {
+        for (int number : numbers) {
             sum += number;
         }
         System.out.println(sum);
@@ -59,6 +60,50 @@ public class Examples7 {
         } catch (IOException ex) {
             System.out.println(ex.toString());
         }
+
+        System.out.println("5. Happy Birthday to You!");
+        for (int times = 1; times < 5; times++) {
+            System.out.print("Happy Birthday ");
+            if (times == 3) System.out.print("dear Steven\n");
+            else System.out.print("to You\n");
+        }
+
+        System.out.println("6. Sort a list of names alphabetically");
+        final List<String> names = Arrays.asList("Chase", "Xavier", "Phil", "Lizzy", "Tina", "Jimmy");
+        Collections.sort(names);
+        System.out.println(names);
+
+        System.out.println("8. Find minimum (or maximum) in a List");
+        List<Integer> numbersList = Arrays.asList(14, 35, -7, 46, 98);
+        int min = Collections.min(numbersList);
+        System.out.println(min);
+        int max = Collections.max(numbersList);
+        System.out.println(max);
+
+        System.out.println("9. Parallel Processing");
+
+        int count = 0;
+        for (int num = 0; num < 1_000_000; num++) {
+            if (isPrime(num)) {
+                System.out.format("%s\t", num);
+                count++;
+            }
+        }
+
+        System.out.println("\nTotal: " + count);
+
+
+    }
+
+    private static boolean isPrime(int number) {
+        if (number <= 1) return false;
+        int bound = number / 2;
+        for (int i = 2; i <= bound; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
