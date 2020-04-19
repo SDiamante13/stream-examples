@@ -17,21 +17,13 @@ public class Album {
         this.tracks = tracks;
     }
 
-    public String getAlbumId() {
-        return albumId;
-    }
+    public String getAlbumId() { return albumId; }
 
-    public String getAlbumName() {
-        return albumName;
-    }
+    public String getAlbumName() { return albumName; }
 
-    public String getReleaseDate() {
-        return releaseDate;
-    }
+    public String getReleaseDate() { return releaseDate; }
 
-    public List<Track> getTracks() {
-        return tracks;
-    }
+    public List<Track> getTracks() { return tracks; }
 
     @Override
     public boolean equals(Object o) {

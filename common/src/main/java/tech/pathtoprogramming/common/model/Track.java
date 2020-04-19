@@ -7,6 +7,9 @@ public class Track {
     private String trackName;
     private int trackDuration;
 
+    public Track() {
+    }
+
     public Track(String trackId, String trackName, int trackDuration) {
         this.trackId = trackId;
         this.trackName = trackName;
@@ -25,6 +28,10 @@ public class Track {
 
     public String getTrackName() {
         return trackName;
+    }
+
+    public int getTrackDuration() {
+        return trackDuration;
     }
 
     public int convertToTrackDuration(String minsSecs) {

@@ -34,7 +34,7 @@ public class ArtistServiceJava7 implements ArtistService {
         for (Artist artist : artists) {
             for (Album album : artist.getAlbums()) {
                 for (Track track : album.getTracks()) {
-                    if (track.getTrackName().startsWith(startsWith)) {
+                    if (track.getTrackName() != null && track.getTrackName().startsWith(startsWith)) {
                         trackNames.add(track.getTrackName());
                     }
                 }
@@ -58,7 +58,7 @@ public class ArtistServiceJava7 implements ArtistService {
     public List<Artist> getAllArtistsByGenre(List<Artist> artists, String genre) {
         List<Artist> artistsByGenre = new ArrayList<>();
         for (Artist artist : artists) {
-            if (artist.getGenre().equalsIgnoreCase(genre)) {
+            if (artist.getGenre() != null && artist.getGenre().equalsIgnoreCase(genre)) {
                 artistsByGenre.add(artist);
             }
         }

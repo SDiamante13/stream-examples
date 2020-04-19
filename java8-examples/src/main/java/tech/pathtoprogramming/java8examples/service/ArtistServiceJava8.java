@@ -30,7 +30,8 @@ public class ArtistServiceJava8 implements ArtistService {
                 .flatMap(Collection::stream)
                 .map(Album::getTracks)
                 .flatMap(Collection::stream)
-                .filter(track -> track.getTrackName().startsWith(startsWith))
+                .filter(track -> track.getTrackName() != null
+                        && track.getTrackName().startsWith(startsWith))
                 .map(Track::getTrackName)
                 .collect(Collectors.toList());
     }
@@ -48,7 +49,8 @@ public class ArtistServiceJava8 implements ArtistService {
     @Override
     public List<Artist> getAllArtistsByGenre(List<Artist> artists, String genre) {
         return artists.stream()
-                .filter(artist -> artist.getGenre().equalsIgnoreCase(genre))
+                .filter(artist -> artist.getGenre() != null &&
+                        artist.getGenre().equalsIgnoreCase(genre))
                 .collect(Collectors.toList());
     }
 

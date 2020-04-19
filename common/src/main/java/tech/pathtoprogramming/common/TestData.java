@@ -4,12 +4,9 @@ import tech.pathtoprogramming.common.model.Album;
 import tech.pathtoprogramming.common.model.Artist;
 import tech.pathtoprogramming.common.model.Track;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
-import static java.time.LocalDate.of;
+import static java.util.Collections.singletonList;
 
 public class TestData {
 
@@ -122,13 +119,19 @@ public class TestData {
             new Album(randomId(), "This Old Dog", "2017-5-5", thisOldDogTracks),
             new Album(randomId(), "Here Comes the Cowboy", "2019-5-10", hereComesTheCowboyTracks)
     );
+
+    public static final List<Album> emptyAlbum = singletonList(
+            new Album(randomId(), "Empty Album", "2019-02-02", Arrays.asList(new Track(), new Track()))
+    );
     // endregion albums
 
     // region artists
     public static final Artist jackJohnson = new Artist(randomId(), "Jack Johnson", "Folk Rock", jackJohnsonAlbums);
     public static final Artist macDeMarco = new Artist(randomId(), "Mac DeMarco", "Indie Rock", macDeMarcoAlbums);
+
     // endregion artists
 
+    // region common test functions
     static String randomId() {
         return UUID.randomUUID().toString();
     }
@@ -148,4 +151,12 @@ public class TestData {
         return expected;
     }
 
+    public static List<Artist> allArtistsWithNoTracks() {
+        return singletonList(new Artist(randomId(), "The Unknown", "Metal", emptyAlbum));
+    }
+
+    public static List<Artist> allArtistsWithNoGenre() {
+        return singletonList(new Artist(randomId(), "mac with no genre", null, macDeMarcoAlbums));
+    }
+    // endregion common test functions
 }

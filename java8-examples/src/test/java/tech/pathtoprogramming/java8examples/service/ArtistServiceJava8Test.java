@@ -37,6 +37,16 @@ public class ArtistServiceJava8Test {
     }
 
     @Test
+    public void getAllTrackNamesStartingWith_returnsEmptyList() {
+        List<String> expected = Collections.emptyList();
+
+        List<String> result = artistServiceJava8.getAllTrackNamesStartingWith(allArtistsWithNoTracks(), "Dr");
+
+        assertThat(result).isEqualTo(expected);
+    }
+
+
+    @Test
     public void getAllTrackNamesByArtist_returnsListOfTrackNamesForTheGivenArtist() {
         List<String> expectedTrackNames = getExpectedTrackNamesList();
 
@@ -50,6 +60,15 @@ public class ArtistServiceJava8Test {
         List<Artist> expected = Collections.singletonList(jackJohnson);
 
         List<Artist> result = artistServiceJava8.getAllArtistsByGenre(allArtists(), "Folk Rock");
+
+        assertThat(result).isEqualTo(expected);
+    }
+
+    @Test
+    public void getAllArtistsByGenre_returnsEmptyListWhenGenreIsNull() {
+        List<String> expected = Collections.emptyList();
+
+        List<Artist> result = artistServiceJava8.getAllArtistsByGenre(allArtistsWithNoGenre(), "Folk Rock");
 
         assertThat(result).isEqualTo(expected);
     }
